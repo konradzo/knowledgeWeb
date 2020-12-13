@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.header-menu{
+  background-color: cadetblue;
+  height: 100px;
+  width: 70%;
+  margin: auto;
+}
+
+.top-menu-list{
+  padding-top: 20px;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  /*align-items: center;*/
+}
+
+.top-menu-list-item{
+  float: left;
+  width: 200px;
+  background-color: brown;
+  border: 1px solid yellow;
+}
+
+.top-menu-list-item-text{
+  text-align: center;
+  font-size: 30px;
+  padding-top: 15px;
+}
+
+
