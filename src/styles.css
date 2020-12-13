@@ -8,11 +8,18 @@ a{
   color: black;
 }
 
+.page-wrapper{
+  position: relative;
+}
+
+.page-container{
+  margin: auto;
+  width: 70%;
+}
+
 .header-menu{
   background-color: cadetblue;
   height: 100px;
-  width: 70%;
-  margin: auto;
 }
 
 .top-menu-list{
@@ -35,5 +42,22 @@ a{
   font-size: 30px;
   padding-top: 15px;
 }
+
+.main-content{
+}
+
+.category-list{
+  width: 400px;
+  margin: auto;
+}
+
+.category{
+  background-color: yellow;
+  margin-top: 30px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+
 
 
