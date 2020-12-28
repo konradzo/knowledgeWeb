@@ -1,50 +1,16 @@
 <div class="category-list">
 
-  <div class="category">
-    <div class="category-name">
-      <a href="#"><h3>Kategoria pierwsza</h3></a>
-    </div>
-    <div class="category-description">
-      Jakiś opis
-    </div>
-    <div class="tests-info">
-      <div>Liczba testów: 1</div>
-    </div>
-  </div>
+  <h2>Lista kategorii ({{categories?.length}}):</h2>
 
-  <div class="category">
+  <div *ngFor="let category of categories" class="category">
     <div class="category-name">
-      <a href="#"><h3>Kategoria druga</h3></a>
+      <a routerLink="/categories/{{category.id}}"><h3>{{category.name}}</h3></a>
     </div>
     <div class="category-description">
-      Jakiś opis
+      {{category.description}}
     </div>
     <div class="tests-info">
-      <div>Liczba testów: 2</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <div class="category-name">
-      <a href="#"><h3>Kategoria trzecia</h3></a>
-    </div>
-    <div class="category-description">
-      Jakiś opis
-    </div>
-    <div class="tests-info">
-      <div>Liczba testów: 2</div>
-    </div>
-  </div>
-
-  <div class="category">
-    <div class="category-name">
-      <a href="#"><h3>Kategoria czwarta</h3></a>
-    </div>
-    <div class="category-description">
-      Jakiś opis
-    </div>
-    <div class="tests-info">
-      <div>Liczba testów: 2</div>
+      <div>Liczba testów: {{category.examList.length}}</div>
     </div>
   </div>
 
