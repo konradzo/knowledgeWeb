@@ -24,6 +24,11 @@ export class CategoryService {
     return this.httpClient.get<Category>(searchUrl);
   }
 
+  createCategory(category: Category): Observable<Category> {
+    console.log('Category json = ' + JSON.stringify(category));
+    return this.httpClient.post<Category>(this.baseUrl, category);
+  }
+
 }
 
 interface GetResponse {

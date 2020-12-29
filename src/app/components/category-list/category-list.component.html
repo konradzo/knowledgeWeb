@@ -1,4 +1,29 @@
 <div class="category-list">
+  <button type="button" (click)="showNewCategoryCreator()">Utwórz kategorie</button>
+
+  <div class="category-creator" *ngIf="showCategoryCreator">
+
+    <form [formGroup]="createCategoryFormGroup" (ngSubmit)="createNewCategory()">
+      <div formGroupName="newCategory" class="new-category-area">
+        <div>
+          <label>Nazwa:</label>
+          <input formControlName="categoryName" type="text">
+        </div>
+
+        <div>
+          <label>Opis:</label>
+          <input formControlName="description" type="text">
+        </div>
+      </div>
+
+
+      <button type="submit">Dodaj</button>
+
+    </form>
+
+
+  </div>
+
 
   <h2>Lista kategorii ({{categories?.length}}):</h2>
 

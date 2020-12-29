@@ -1,0 +1,26 @@
+<!-- name. surname, email -->
+
+<form [formGroup]="signUpFormGroup" (ngSubmit)="onSubmit()">
+  <div formGroupName="newUser" class="new-user-area">
+    <h3>Zarejestruj się</h3>
+
+    <div class="row">
+      <label>Imie</label>
+      <input formControlName="name" type="text" required>
+    </div>
+
+    <div class="row">
+      <label>Nazwisko</label>
+      <input formControlName="surname" type="text" required>
+    </div>
+
+    <div class="row">
+      <label>Email</label>
+      <input formControlName="email" type="text" required>
+    </div>
+
+  </div>
+
+  <button type="submit">Utwórz</button>
+
+</form>

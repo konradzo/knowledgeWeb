@@ -7,8 +7,12 @@ import {CategoryListComponent} from './components/category-list/category-list.co
 import {HttpClientModule} from '@angular/common/http';
 import {CategoryService} from './services/category.service';
 import {CategoryComponent} from './components/category/category.component';
+import {SignUpComponent} from './components/sign-up/sign-up.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {UserService} from './services/user.service';
 
 const routes: Routes = [
+  {path: 'sign-up', component: SignUpComponent},
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'categories', component: CategoryListComponent}
 ];
@@ -17,14 +21,17 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CategoryListComponent,
-    CategoryComponent
+    CategoryComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [CategoryService],
+  providers: [CategoryService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
