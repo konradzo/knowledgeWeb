@@ -10,9 +10,11 @@ import {CategoryComponent} from './components/category/category.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
+import { ExamComponent } from './components/exam/exam.component';
 
 const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
+  {path: 'categories/:id/exams/:examId', component: ExamComponent},
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'categories', component: CategoryListComponent}
 ];
@@ -22,7 +24,8 @@ const routes: Routes = [
     AppComponent,
     CategoryListComponent,
     CategoryComponent,
-    SignUpComponent
+    SignUpComponent,
+    ExamComponent
   ],
   imports: [
     BrowserModule,

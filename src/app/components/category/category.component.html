@@ -2,6 +2,6 @@
 <p>opis:{{category.description}}</p>
 <h2 *ngIf="category.examList.length>0"> Lista egzaminów</h2>
 <div *ngFor="let exam of category.examList">
-  <p>Tytuł: {{exam.header}}</p>
+  <a routerLink="exams/{{exam.id}}"><h6>Tytuł: {{exam.header}}</h6></a>
   <p>opis: {{exam.description}}</p>
 </div>

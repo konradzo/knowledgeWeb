@@ -1,0 +1,9 @@
+<p>Nazwa egzaminu: {{exam?.header}}</p>
+<p>opis:{{exam?.description}}</p>
+<h2 *ngIf="exam?.questionList?.length>0"> Lista pytań</h2>
+<div *ngFor="let question of exam?.questionList">
+  <p>Pytanie: {{question.question}}</p>
+  <div *ngFor="let answer of question.answers">
+    <p>{{answer}}</p>
+  </div>
+</div>
