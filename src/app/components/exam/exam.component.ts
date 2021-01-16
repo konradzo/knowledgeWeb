@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {Exam} from '../../model/exam';
 import {CategoryService} from '../../services/category.service';
 import {ActivatedRoute} from '@angular/router';
+import {Question} from '../../model/question';
+import {QuestionAnswer} from '../../model/question-answer';
+import {ResultService} from '../../services/result.service';
 
 @Component({
   selector: 'app-exam',
@@ -9,11 +12,15 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./exam.component.css']
 })
 export class ExamComponent implements OnInit {
-  exam: Exam;
+  exam: Exam = new Exam();
   currentExamId: number;
   currentCategoryId: number;
+  //todo
+  userId = 3;
 
-  constructor(private categoryService: CategoryService, private route: ActivatedRoute) {
+  givenAnswers: QuestionAnswer[] = [];
+
+  constructor(private categoryService: CategoryService, private route: ActivatedRoute, private resultService: ResultService) {
   }
 
   ngOnInit(): void {
@@ -51,4 +58,30 @@ export class ExamComponent implements OnInit {
 
   }
 
+
+  fillQuestionAnswer(question: Question, answer: string, i: number) {
+    console.log(`index value ${i}`);
+    this.givenAnswers[i - 1] = new QuestionAnswer(question, answer);
+    console.log(`Filled answer ${answer}`);
+    // console.log(`Question id ${question.id}`);
+    console.log(`Filled answers size ${this.givenAnswers.length}`);
+
+    // for (let a of this.givenAnswers) {
+    //   console.log(`${a.question.id}. ${a.question.question}, answer ${a.answer}`);
+    // }
+
+  }
+
+  onSubmit() {
+    //this.categoryService.checkExam(this.currentCategoryId, this.exam.id, this.userId, this.givenAnswers);
+  }
+
+  notAllQuestionAnswered() {
+    let check: boolean = this.givenAnswers.length != this.exam.questionList.length;
+    if (!check){
+      this.resultService.sendData(this.userId, this.currentCategoryId, this.exam.id, this.givenAnswers);
+    }
+
+    return check;
+  }
 }

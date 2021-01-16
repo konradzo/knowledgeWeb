@@ -1,9 +1,28 @@
 <p>Nazwa egzaminu: {{exam?.header}}</p>
 <p>opis:{{exam?.description}}</p>
 <h2 *ngIf="exam?.questionList?.length>0"> Lista pytań</h2>
-<div *ngFor="let question of exam?.questionList">
-  <p>Pytanie: {{question.question}}</p>
-  <div *ngFor="let answer of question.answers">
-    <p>{{answer}}</p>
-  </div>
+
+
+<div class="question-list">
+
+    <div *ngFor="let question of exam?.questionList">
+
+      <div class="question-text">
+        <p>Pytanie: {{question.question}}</p>
+      </div>
+
+      <div class="possible-answers-list">
+        <div class="possible-answer" *ngFor="let answer of question.answers">
+          <input type="radio" name="question-answer-{{question.id}}" value="{{answer}}"
+                 (change)="fillQuestionAnswer(question,$event.target.value,question.id)"/>
+          <label>{{answer}}</label><br>
+        </div>
+      </div>
+
+    </div>
+
+    <div>
+      <button routerLink="check" type="submit" [disabled]="notAllQuestionAnswered()" (click)="onSubmit()">Zatwierdź</button>
+    </div>
+
 </div>

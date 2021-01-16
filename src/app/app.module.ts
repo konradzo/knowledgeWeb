@@ -11,9 +11,12 @@ import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
 import { ExamComponent } from './components/exam/exam.component';
+import { ResultComponent } from './components/result/result.component';
+import {ResultService} from './services/result.service';
 
 const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
+  {path: 'categories/:id/exams/:examId/check', component: ResultComponent},
   {path: 'categories/:id/exams/:examId', component: ExamComponent},
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'categories', component: CategoryListComponent}
@@ -25,7 +28,8 @@ const routes: Routes = [
     CategoryListComponent,
     CategoryComponent,
     SignUpComponent,
-    ExamComponent
+    ExamComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +38,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [CategoryService, UserService],
+  providers: [CategoryService, UserService, ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

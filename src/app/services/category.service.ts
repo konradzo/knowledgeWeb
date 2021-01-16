@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Category} from '../model/category';
 import {map} from 'rxjs/operators';
 import {Exam} from '../model/exam';
+import {QuestionAnswer} from '../model/question-answer';
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,7 @@ export class CategoryService {
 
 interface GetResponse {
   categories: Category[];
+  size: number;
 }
 
 
