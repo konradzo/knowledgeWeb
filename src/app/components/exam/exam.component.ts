@@ -63,7 +63,7 @@ export class ExamComponent implements OnInit {
 
   fillQuestionAnswer(question: Question, answer: string, i: number) {
     console.log(`index value ${i}`);
-    this.givenAnswers[i - 1] = new QuestionAnswer(question, answer);
+    this.givenAnswers[i] = new QuestionAnswer(question, answer);
     console.log(`Filled answer ${answer}`);
     // console.log(`Question id ${question.id}`);
     console.log(`Filled answers size ${this.givenAnswers.length}`);
@@ -79,6 +79,8 @@ export class ExamComponent implements OnInit {
   }
 
   notAllQuestionAnswered() {
+    console.log('Given answers: '+this.givenAnswers.length);
+    console.log('Question list : '+this.exam.questionList.length);
     let check: boolean = this.givenAnswers.length != this.exam.questionList.length;
     if (!check){
       this.resultService.sendData(this.userId, this.currentCategoryId, this.exam.id, this.givenAnswers);

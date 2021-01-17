@@ -13,10 +13,12 @@ import {UserService} from './services/user.service';
 import { ExamComponent } from './components/exam/exam.component';
 import { ResultComponent } from './components/result/result.component';
 import {ResultService} from './services/result.service';
+import { ExamUpdateComponent } from './components/exam-update/exam-update.component';
 
 const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
   {path: 'categories/:id/exams/:examId/check', component: ResultComponent},
+  {path: 'categories/:id/exams/:examId/update', component: ExamUpdateComponent},
   {path: 'categories/:id/exams/:examId', component: ExamComponent},
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'categories', component: CategoryListComponent}
@@ -29,7 +31,8 @@ const routes: Routes = [
     CategoryComponent,
     SignUpComponent,
     ExamComponent,
-    ResultComponent
+    ResultComponent,
+    ExamUpdateComponent
   ],
   imports: [
     BrowserModule,

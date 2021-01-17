@@ -1,0 +1,70 @@
+<p>Update egzaminu</p>
+<p>Nazwa egzaminu: {{exam?.header}}</p>
+<p>opis:{{exam?.description}}</p>
+<h2 *ngIf="exam?.questionList?.length>0"> Lista pytań</h2>
+
+<div class="question-list">
+
+  <div>
+    <button type="button" (click)="showQuestionCreator()">Utwórz pytanie</button>
+  </div>
+
+  <div class="new-question-creator" *ngIf="showNewQuestionCreator">
+
+    <form [formGroup]="createQuestionFormGroup" (ngSubmit)="addNewQuestion()">
+      <div formGroupName="newQuestion" class="new-question-area">
+
+        <div class="question-content">
+          <label>Treść pytania</label>
+          <input formControlName="questionContent" type="text">
+        </div>
+
+        <div class="possible-answer">
+          <label>Pierwsza mozliwa odpowiedz</label>
+          <input formControlName="firstPossibleAnswer" type="text">
+        </div>
+
+        <div class="possible-answer">
+          <label>Druga mozliwa odpowiedz</label>
+          <input formControlName="secondPossibleAnswer" type="text">
+        </div>
+
+        <div class="possible-answer">
+          <label>Trzecia mozliwa odpowiedz</label>
+          <input formControlName="thirdPossibleAnswer" type="text">
+        </div>
+
+        <div class="possible-answer">
+          <label>Czwarta mozliwa odpowiedz</label>
+          <input formControlName="fourthPossibleAnswer" type="text">
+        </div>
+
+        <div class="correct-answer">
+          <label>Prawidłowa odpowiedź</label>
+          <input formControlName="correctAnswer" type="text">
+        </div>
+
+      </div>
+
+      <button type="submit">Dodaj</button>
+
+    </form>
+
+  </div>
+
+
+  <div *ngFor="let question of exam?.questionList">
+
+    <div class="question-text">
+      <p>Pytanie: {{question.question}}</p>
+    </div>
+
+    <div class="possible-answers-list">
+      <div class="possible-answer" *ngFor="let answer of question.answers">
+        <p>{{answer}}</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>

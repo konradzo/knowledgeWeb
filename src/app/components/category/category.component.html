@@ -36,6 +36,11 @@
   <div *ngFor="let exam of category?.examList">
     <a routerLink="exams/{{exam.id}}"><h6>Tytuł: {{exam.header}}</h6></a>
     <p>opis: {{exam.description}}</p>
+
+    <div>
+      <button routerLink="exams/{{exam.id}}/update" type="button">Update exam</button>
+    </div>
+
   </div>
 
 

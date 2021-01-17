@@ -2,7 +2,6 @@
 <p>opis:{{exam?.description}}</p>
 <h2 *ngIf="exam?.questionList?.length>0"> Lista pytań</h2>
 
-
 <div class="question-list">
 
     <div *ngFor="let question of exam?.questionList">
@@ -12,9 +11,9 @@
       </div>
 
       <div class="possible-answers-list">
-        <div class="possible-answer" *ngFor="let answer of question.answers">
+        <div class="possible-answer" *ngFor="let answer of question.answers; let i = index">
           <input type="radio" name="question-answer-{{question.id}}" value="{{answer}}"
-                 (change)="fillQuestionAnswer(question,$event.target.value,question.id)"/>
+                 (change)="fillQuestionAnswer(question,$event.target.value,i)"/>
           <label>{{answer}}</label><br>
         </div>
       </div>
