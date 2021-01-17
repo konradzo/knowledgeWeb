@@ -1,7 +1,42 @@
-<p>Nazwa kategorii: {{category?.name}}</p>
-<p>opis:{{category?.description}}</p>
-<h2 *ngIf="category?.examList.length>0"> Lista egzaminów</h2>
-<div *ngFor="let exam of category?.examList">
-  <a routerLink="exams/{{exam.id}}"><h6>Tytuł: {{exam.header}}</h6></a>
-  <p>opis: {{exam.description}}</p>
+<div class="category-details">
+
+  <button type="button" (click)="showNewExamCreator()">Okno tworzenia egzaminu</button>
+
+  <div class="exam-creator" *ngIf="showExamCreator">
+
+    <form [formGroup]="createExamFormGroup" (ngSubmit)="createNewExam()">
+
+      <div formGroupName="newExam" class="new-exam-area">
+
+        <div>
+          <label>Nazwa:</label>
+          <input formControlName="examHeader" type="text">
+        </div>
+
+        <div>
+          <label>Opis:</label>
+          <input formControlName="examDescription" type="text">
+        </div>
+
+      </div>
+
+      <!-- disabled when not filled header and description-->
+      <button  type="button" (click)="createNewExam()">Utwórz egzamin</button>
+
+
+    </form>
+
+  </div>
+
+
+
+  <p>Nazwa kategorii: {{category?.name}}</p>
+  <p>opis:{{category?.description}}</p>
+  <h2 *ngIf="category?.examList.length>0"> Lista egzaminów</h2>
+  <div *ngFor="let exam of category?.examList">
+    <a routerLink="exams/{{exam.id}}"><h6>Tytuł: {{exam.header}}</h6></a>
+    <p>opis: {{exam.description}}</p>
+  </div>
+
+
 </div>

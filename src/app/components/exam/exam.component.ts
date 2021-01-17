@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {Question} from '../../model/question';
 import {QuestionAnswer} from '../../model/question-answer';
 import {ResultService} from '../../services/result.service';
+import {ExamService} from '../../services/exam.service';
 
 @Component({
   selector: 'app-exam',
@@ -12,7 +13,7 @@ import {ResultService} from '../../services/result.service';
   styleUrls: ['./exam.component.css']
 })
 export class ExamComponent implements OnInit {
-  exam: Exam = new Exam();
+  exam: Exam;
   currentExamId: number;
   currentCategoryId: number;
   //todo
@@ -20,7 +21,8 @@ export class ExamComponent implements OnInit {
 
   givenAnswers: QuestionAnswer[] = [];
 
-  constructor(private categoryService: CategoryService, private route: ActivatedRoute, private resultService: ResultService) {
+  constructor(private route: ActivatedRoute, private resultService: ResultService,
+              private examService: ExamService) {
   }
 
   ngOnInit(): void {
@@ -50,7 +52,7 @@ export class ExamComponent implements OnInit {
       this.currentExamId = 1;
     }
 
-    this.categoryService.getExam(this.currentCategoryId, this.currentExamId).subscribe(
+    this.examService.getExam(this.currentCategoryId, this.currentExamId).subscribe(
       result => {
         this.exam = result;
       }
