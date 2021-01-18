@@ -94,4 +94,8 @@ export class ExamUpdateComponent implements OnInit {
     this.examService.addQuestion(this.currentCategoryId, this.currentExamId, newQuestion).subscribe();
     this.ngOnInit();
   }
+
+  removeQuestion(questionId: number) {
+    this.examService.removeQuestion(this.currentCategoryId, this.currentExamId, questionId).subscribe();
+  }
 }

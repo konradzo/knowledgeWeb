@@ -28,4 +28,8 @@ export class ExamService {
     return this.httpClient.put<Exam>(createUrl, question);
   }
 
+  removeQuestion(currentCategoryId: number, currentExamId: number, questionId: number) {
+    const removeUrl = this.baseUrl + '/' + currentCategoryId + '/exams/'+currentExamId+'/'+questionId;
+    return this.httpClient.delete<Exam>(removeUrl)
+  }
 }
