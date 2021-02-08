@@ -1,7 +1,7 @@
 import {User} from './user';
 
 export class ExamResult {
-  user: User;
+  // user: User;
   possiblePoints: number;
   points: number;
 }

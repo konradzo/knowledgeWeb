@@ -63,7 +63,7 @@ export class ExamComponent implements OnInit {
 
   fillQuestionAnswer(question: Question, answer: string, i: number) {
     console.log(`index value ${i}`);
-    this.givenAnswers[question.id-1] = new QuestionAnswer(question, answer);
+    this.givenAnswers[i] = new QuestionAnswer(question, answer);
     console.log(`Filled answer ${answer}`);
     // console.log(`Question id ${question.id}`);
     console.log(`Filled answers size ${this.givenAnswers.length}`);

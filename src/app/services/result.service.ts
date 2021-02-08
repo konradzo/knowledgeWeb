@@ -29,6 +29,7 @@ export class ResultService {
   checkAnswers(userId: number, currentCategoryId: number, id: number, sentAnswers: QuestionAnswer[]) {
     const searchUrl = this.baseCheckUrl + '/' + currentCategoryId + '/exams/' + id + '/check';
     let examCheck: ExamCheck = new ExamCheck(sentAnswers, userId);
+    console.log(`Check url ${searchUrl}`);
     return this.httpClient.post<ExamResult>(searchUrl, examCheck);
   }
 }

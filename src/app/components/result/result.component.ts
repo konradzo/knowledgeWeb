@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ResultService} from '../../services/result.service';
 import {QuestionAnswer} from '../../model/question-answer';
 import {User} from '../../model/user';
+import {ExamResult} from '../../model/exam-result';
 
 @Component({
   selector: 'app-result',
@@ -18,6 +19,7 @@ export class ResultComponent implements OnInit {
   user: User;
   possiblePoints: number;
   points: number;
+  examResult: ExamResult = new ExamResult();
 
   constructor(private resultService: ResultService) {
   }
@@ -33,9 +35,8 @@ export class ResultComponent implements OnInit {
   showUserResults() {
     this.resultService.checkAnswers(this.userId, this.categoryId, this.examId, this.givenAnswers).subscribe(
       result => {
-        this.user = result.user;
-        this.possiblePoints = result.possiblePoints;
-        this.points = result.points;
+        // this.user = result.user;
+        this.examResult = result;
       }
     );
   }

@@ -4,14 +4,14 @@
 
 <div class="question-list">
 
-    <div *ngFor="let question of exam?.questionList">
+    <div *ngFor="let question of exam?.questionList; let i = index">
 
       <div class="question-text">
         <p>Pytanie: {{question.question}}</p>
       </div>
 
       <div class="possible-answers-list">
-        <div class="possible-answer" *ngFor="let answer of question.answers; let i = index">
+        <div class="possible-answer" *ngFor="let answer of question.answers">
           <input type="radio" name="question-answer-{{question.id}}" value="{{answer}}"
                  (change)="fillQuestionAnswer(question,$event.target.value,i)"/>
           <label>{{answer}}</label><br>
