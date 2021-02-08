@@ -15,6 +15,7 @@ import {ResultComponent} from './components/result/result.component';
 import {ResultService} from './services/result.service';
 import {ExamUpdateComponent} from './components/exam-update/exam-update.component';
 import {UserListComponent} from './components/user-list/user-list.component';
+import { UserExamApproachesComponent } from './components/user-exam-approaches/user-exam-approaches.component';
 
 const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'categories/:id/exams/:examId', component: ExamComponent},
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'categories', component: CategoryListComponent},
+  {path: 'users/:id/exam-approaches', component: UserExamApproachesComponent},
   {path: 'users', component: UserListComponent}
 ];
 
@@ -35,7 +37,8 @@ const routes: Routes = [
     ExamComponent,
     ResultComponent,
     ExamUpdateComponent,
-    UserListComponent
+    UserListComponent,
+    UserExamApproachesComponent
   ],
   imports: [
     BrowserModule,

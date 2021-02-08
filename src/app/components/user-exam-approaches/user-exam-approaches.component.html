@@ -1,0 +1,15 @@
+<h1 xmlns="http://www.w3.org/1999/html">Wyniki egzaminów</h1>
+<p>UserId: {{currentUserId}}</p>
+<p>Exam approach list size: {{size}}</p>
+
+<div class="exam-approach-list">
+
+  <div class="exam-approach" *ngFor="let approach of examApproaches">
+    Id: {{approach.id}}<br/>
+    examId: {{approach.exam.id}}<br/>
+    date: {{approach.date}}<br/>
+    possiblePoints: {{approach.possiblePoints}}<br/>
+    scoredPoints: {{approach.scoredPoints}}
+  </div>
+
+</div>
