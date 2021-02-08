@@ -10,10 +10,11 @@ import {CategoryComponent} from './components/category/category.component';
 import {SignUpComponent} from './components/sign-up/sign-up.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {UserService} from './services/user.service';
-import { ExamComponent } from './components/exam/exam.component';
-import { ResultComponent } from './components/result/result.component';
+import {ExamComponent} from './components/exam/exam.component';
+import {ResultComponent} from './components/result/result.component';
 import {ResultService} from './services/result.service';
-import { ExamUpdateComponent } from './components/exam-update/exam-update.component';
+import {ExamUpdateComponent} from './components/exam-update/exam-update.component';
+import {UserListComponent} from './components/user-list/user-list.component';
 
 const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'categories/:id/exams/:examId/update', component: ExamUpdateComponent},
   {path: 'categories/:id/exams/:examId', component: ExamComponent},
   {path: 'categories/:id', component: CategoryComponent},
-  {path: 'categories', component: CategoryListComponent}
+  {path: 'categories', component: CategoryListComponent},
+  {path: 'users', component: UserListComponent}
 ];
 
 @NgModule({
@@ -32,7 +34,8 @@ const routes: Routes = [
     SignUpComponent,
     ExamComponent,
     ResultComponent,
-    ExamUpdateComponent
+    ExamUpdateComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

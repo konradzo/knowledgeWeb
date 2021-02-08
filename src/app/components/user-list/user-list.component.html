@@ -1,0 +1,8 @@
+<p>Lista użytkowników</p>
+<div class="user-list" *ngIf="users.length>0">
+
+  <div class="user" *ngFor="let user of users">
+    <p>{{user.name}} {{user.surname}}</p>
+  </div>
+
+</div>
