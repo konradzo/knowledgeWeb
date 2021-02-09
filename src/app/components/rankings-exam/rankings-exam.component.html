@@ -1,0 +1,9 @@
+<h2>List dla egzaminu o id {{currentExamId}}</h2>
+
+<div>
+
+  <div *ngFor="let approach of examApproaches">
+    <p>Id: {{approach.id}}, scored points: {{approach.scoredPoints}}, date: {{approach.date}}</p>
+  </div>
+
+</div>

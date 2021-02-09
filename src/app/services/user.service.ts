@@ -38,8 +38,6 @@ export class UserService {
   fetchUserExamApproaches(userId: number) {
     const examApproachesUrl = this.baseUrl + '/' + userId + '/approaches';
     return this.httpClient.get<GetExamApproachListResponse>(examApproachesUrl);
-
-
   }
 
 }

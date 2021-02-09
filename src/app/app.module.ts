@@ -16,6 +16,9 @@ import {ResultService} from './services/result.service';
 import {ExamUpdateComponent} from './components/exam-update/exam-update.component';
 import {UserListComponent} from './components/user-list/user-list.component';
 import { UserExamApproachesComponent } from './components/user-exam-approaches/user-exam-approaches.component';
+import { RankingsComponent } from './components/rankings/rankings.component';
+import { RankingsCategoryComponent } from './components/rankings-category/rankings-category.component';
+import { RankingsExamComponent } from './components/rankings-exam/rankings-exam.component';
 
 const routes: Routes = [
   {path: 'sign-up', component: SignUpComponent},
@@ -25,7 +28,10 @@ const routes: Routes = [
   {path: 'categories/:id', component: CategoryComponent},
   {path: 'categories', component: CategoryListComponent},
   {path: 'users/:id/exam-approaches', component: UserExamApproachesComponent},
-  {path: 'users', component: UserListComponent}
+  {path: 'users', component: UserListComponent},
+  {path: 'rankings/categories/:id', component: RankingsCategoryComponent},
+  {path: 'rankings/categories/:id/exams/:id', component: RankingsExamComponent},
+  {path: 'rankings', component: RankingsComponent}
 ];
 
 @NgModule({
@@ -38,7 +44,10 @@ const routes: Routes = [
     ResultComponent,
     ExamUpdateComponent,
     UserListComponent,
-    UserExamApproachesComponent
+    UserExamApproachesComponent,
+    RankingsComponent,
+    RankingsCategoryComponent,
+    RankingsExamComponent
   ],
   imports: [
     BrowserModule,

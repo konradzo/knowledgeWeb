@@ -1,0 +1,9 @@
+<h2>Lista Kategorii</h2>
+
+<div class="category-list">
+
+  <div class="category" *ngFor="let category of categories">
+    <a routerLink="/rankings/categories/{{category.id}}">{{category.name}}</a>
+  </div>
+
+</div>
